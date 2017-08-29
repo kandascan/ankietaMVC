@@ -1,0 +1,32 @@
+﻿@model IEnumerable<AnkietaMVC.Models.UserAnswer>
+
+@{
+    ViewBag.Title = "GetAnswers";
+}
+
+<h2>User answers</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Question</th>
+            <th>Answer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var answer in Model)
+        {
+            <tr>
+                <td>
+                    @answer.QuestionId
+                </td>
+                <td>
+                    @answer.Question.TrimEnd()
+                </td>
+                <td>
+                    @answer.Answer
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,6 @@
+﻿@model  IEnumerable<AnkietaMVC.Models.Answer>
+
+@foreach (var item in Model)
+{
+    @Html.CheckBox(item.QuestionId.ToString(), item.Value.TrimEnd())    <span>@item.Value.TrimEnd()</span>
+}
