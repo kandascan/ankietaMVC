@@ -1,42 +1,43 @@
-﻿<br />
+﻿@model IEnumerable<AnkietaMVC.Models.Section>
+
+<br />
 <br />
 @{
     ViewBag.Title = "Index";
 }
-
-@*<div id="tabs-2">
-        @Html.Partial("~/Views/Tabs/Occupation.cshtml")
-    </div>
-    <div id="tabs-3">
-        @Html.Partial("~/Views/Tabs/Education.cshtml")
-    </div>
-</div>*@
 <div class="container">
     <h2>Choose category</h2>
-    <ul class="nav nav-tabs">
-        <li class="active"><a data-toggle="tab" href="#home">Home</a></li>
-        <li><a data-toggle="tab" href="#menu1">Riddles</a></li>
-        <li><a data-toggle="tab" href="#menu2">Menu 2</a></li>
-        <li><a data-toggle="tab" href="#menu3">Menu 3</a></li>
-    </ul>
 
+    <ul class="nav nav-tabs">
+        @foreach (var item in Model)
+        {
+            if (item.Id == 1)
+            {
+                <li class="active"><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName</a></li>
+            }
+            else
+            {
+                <li><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName</a></li>
+            }
+        }
+    </ul>
     <div class="tab-content">
-        <div id="home" class="tab-pane fade in active">
-            <h3>HOME</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div id="menu1" class="tab-pane fade">
-            @Html.Partial("~/Views/Tabs/Riddles.cshtml")
-        </div>
-        <div id="menu2" class="tab-pane fade">
-            <h3>Menu 2</h3>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        </div>
-        <div id="menu3" class="tab-pane fade">
-            <h3>Menu 3</h3>
-            <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        </div>
+        @foreach (var item in Model)
+        {
+            if (item.Id == 1)
+            {
+                <div id="@item.SectionLink" class="tab-pane fade in active">
+                    <h3>@item.SectionHeaderName</h3>
+                    @Html.Partial("~/Views/Home/Question.cshtml", item.Question)
+                </div>
+            }
+            else
+            {
+                <div id="@item.SectionLink" class="tab-pane fade">
+                    <h3>@item.SectionHeaderName</h3>
+                    @Html.Partial("~/Views/Home/Question.cshtml", item.Question)
+                </div>
+            }
+        }
     </div>
 </div>
-
-

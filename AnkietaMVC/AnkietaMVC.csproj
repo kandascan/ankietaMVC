@@ -153,6 +153,9 @@
     <Compile Include="Models\Question.cs">
       <DependentUpon>AnkietaModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Section.cs">
+      <DependentUpon>AnkietaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserAnswer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -160,11 +163,9 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\AnswersTemplate\RadioButtonsAnswer.cshtml" />
-    <Content Include="Views\Tabs\Riddles.cshtml" />
-    <Content Include="Views\Tabs\Occupation.cshtml" />
-    <Content Include="Views\Tabs\Education.cshtml" />
     <Content Include="Views\Home\GetAnswers.cshtml" />
     <Content Include="Views\AnswersTemplate\CheckBoxAnswer.cshtml" />
+    <Content Include="Views\Home\Question.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

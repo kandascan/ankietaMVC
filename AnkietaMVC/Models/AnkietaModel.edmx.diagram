@@ -5,9 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0656ec5da3f54aa5b5983fbfa848ad16" Name="Diagram1">
-        <EntityTypeShape EntityType="AnkietaModel.Answer" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="AnkietaModel.Question" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <AssociationConnector Association="AnkietaModel.FK_Answer_Question" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="AnkietaModel.Answer" Width="1.5" PointX="5.25" PointY="1.125" />
+        <EntityTypeShape EntityType="AnkietaModel.Question" Width="1.5" PointX="3" PointY="0.875" />
+        <EntityTypeShape EntityType="AnkietaModel.Section" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="AnkietaModel.FK_Answer_Question" />
+        <AssociationConnector Association="AnkietaModel.FK_Question_Section" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

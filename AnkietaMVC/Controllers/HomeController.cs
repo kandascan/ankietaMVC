@@ -12,8 +12,9 @@ namespace AnkietaMVC.Controllers
         public ActionResult Index()
         {
             var db = new AnkietaEntities();
-            var question = db.Question.ToList();
-            return View(question);
+
+            var section = db.Section.ToList();
+            return View(section);
         }
 
         public ActionResult GetAnswers(FormCollection answers)
@@ -74,10 +75,6 @@ namespace AnkietaMVC.Controllers
                         Answer = answers[answer]
                     });
                 }
-
-
-                
-
             }
 
             return View(userAnswers);
