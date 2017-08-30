@@ -8,19 +8,44 @@
 <div class="container">
     <h2>Choose category</h2>
 
-    <ul class="nav nav-tabs">
+    @*<ul class="nav nav-tabs">
+            @foreach (var item in Model)
+            {
+                if (item.Id == 1)
+                {
+                    <li class="active"><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName <small class="badge">@item.Question.Count</small></a></li>
+                }
+                else
+                {
+                    <li><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName <small class="badge">@item.Question.Count</small></a></li>
+                }
+            }
+        </ul>*@
+    <div class="list-group">
         @foreach (var item in Model)
         {
-            if (item.Id == 1)
-            {
-                <li class="active"><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName</a></li>
-            }
-            else
-            {
-                <li><a data-toggle="tab" href="#@item.SectionLink">@item.SectionTabName</a></li>
-            }
+            <a data-toggle="tab" href="#@item.SectionLink" class="list-group-item">@item.SectionTabName <small class="badge">@item.Question.Count</small></a>
         }
-    </ul>
+    </div>
+    @*<div class="tab-content">
+            @foreach (var item in Model)
+            {
+                if (item.Id == 1)
+                {
+                    <div id="@item.SectionLink" class="tab-pane fade in active">
+                        <h3>@item.SectionHeaderName</h3>
+                        @Html.Partial("~/Views/Home/Question.cshtml", item.Question)
+                    </div>
+                }
+                else
+                {
+                    <div id="@item.SectionLink" class="tab-pane fade">
+                        <h3>@item.SectionHeaderName</h3>
+                        @Html.Partial("~/Views/Home/Question.cshtml", item.Question)
+                    </div>
+                }
+            }
+        </div>*@
     <div class="tab-content">
         @foreach (var item in Model)
         {
