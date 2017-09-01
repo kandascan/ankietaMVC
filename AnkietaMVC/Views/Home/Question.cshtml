@@ -1,0 +1,13 @@
+﻿@model IEnumerable<AnkietaMVC.Models.Question>
+@using (Html.BeginForm("GetAnswers", "Home", FormMethod.Post))
+{
+    foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading"><h4>@item.Title.ToUpper()</h4></div>
+            <div class="panel-body">@Html.Partial("~/Views/AnswersTemplate/" + item.Template.TrimEnd() + ".cshtml", item.Answer)</div>
+        </div>
+    }
+    <br />
+    <button type="submit" class="btn btn-success">Submit</button>
+}
